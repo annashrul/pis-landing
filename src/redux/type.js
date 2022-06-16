@@ -1,0 +1,23 @@
+export const AUTH = {
+    URL: "http://localhost:6706/",
+    SOURCE: "apps",
+    PID: "296cd1b03960e8c8176fe06464c58ab8",
+}
+
+export const BANK = {
+    GET:"BANK_GET",
+    SUCCESS:"BANK_SUCCESS",
+    ERROR: "BANK_ERROR",
+    CHANNEL: "BANK_CHANNEL",
+    PAKET: "BANK_PAKET",
+    CONFIG: "BANK_CONFIG",
+
+}
+
+export const REGIST = {
+    VALIDATE: "REGIST_VALIDATE",
+    SUCCESS: "REGIST_SUCCESS",
+    ERROR: "REGIST_ERROR",
+    STEP: "REGIST_STEP",
+}
+
