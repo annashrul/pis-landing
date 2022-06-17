@@ -120,32 +120,32 @@ export default ({referral}) => {
                   <Tr>
                     <Th>Nama</Th>
                     <Td>:</Td>
-                    <Td>{datum.nama || '-'}</Td>
+                    <Td>{datum!==null?datum.nama : '-'}</Td>
                   </Tr>
                   <Tr>
                     <Th>No. Handphone</Th>
                     <Td>:</Td>
-                    <Td> {datum.mobile_no || '-'}</Td>
+                    <Td> {datum!==null?datum.mobile_no : '-'}</Td>
                   </Tr>
                   <Tr>
                     <Th>Username</Th>
                     <Td>:</Td>
-                    <Td> {datum.username || '-'}</Td>
+                    <Td> {datum!==null?datum.username : '-'}</Td>
                   </Tr>
                   <Tr>
                     <Th>Bank</Th>
                     <Td>:</Td>
-                    <Td>{(datum.bank.split('|'))[1] || '-'}</Td>
+                    <Td>{(datum!==null?datum.bank.split('|'))[1] : '-'}</Td>
                   </Tr>
                   <Tr>
                     <Th>Atas Nama</Th>
                     <Td>:</Td>
-                    <Td>{datum.acc_name || '-'}</Td>
+                    <Td>{datum!==null?datum.acc_name : '-'}</Td>
                   </Tr>
                   <Tr>
                     <Th>No. Rekening</Th>
                     <Td>:</Td>
-                    <Td>{datum.acc_no || '-'}</Td>
+                    <Td>{datum!==null?datum.acc_no : '-'}</Td>
                   </Tr>
               </Table>
             </div>
