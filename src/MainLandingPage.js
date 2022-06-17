@@ -27,9 +27,22 @@ export default () => (
       <br/>✓ SK.KEMENKUMHAM UHU - 0075353. AH .01 .01 
       <br/>&nbsp;&nbsp;&nbsp;&nbsp;TAHUN 2021 No .4021112336106067
       <br/>✓ NPWP.53.387 .322 .0 - 451.000
-      <br/>✓ SIUPL.03016 / SIPT / 01 / 2022 
       </>
     }
+    statistics={[
+                {
+                  key: "Members",
+                  value: "2282+"
+                },
+                {
+                  key: "Bonus dibagikan",
+                  value: "122x"
+                },
+                {
+                  key: "Bonus Ditarik",
+                  value: "Rp 1.000.000.000  "
+                }
+              ]}
     />
     <Pricing
       subheading=""
