@@ -135,7 +135,7 @@ export default ({referral}) => {
                   <Tr>
                     <Th>Bank</Th>
                     <Td>:</Td>
-                    <Td>{(datum!==null?datum.bank.split('|'))[1] : '-'}</Td>
+                    <Td>{datum!==null?(datum.bank.split('|'))[1] : '-'}</Td>
                   </Tr>
                   <Tr>
                     <Th>Atas Nama</Th>
