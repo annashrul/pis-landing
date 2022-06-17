@@ -74,14 +74,16 @@ export default (props) => {
     dispatch(getBank());
     document.title = `Registrasi Prowara!`;
     const datum = JSON.parse(localStorage.getItem("regist"));
-    setValue("nama", datum.nama)
-    setValue("mobile_no", datum.mobile_no)
-    setValue("username", datum.username)
-    setValue("password", datum.password)
-    setValue("password_confirm", datum.password_confirm)
-    setValue("bank", datum.bank)
-    setValue("acc_name", datum.acc_name)
-    setValue("acc_no", datum.acc_no)
+    if(datum!==null){
+      setValue("nama", datum.nama)
+      setValue("mobile_no", datum.mobile_no)
+      setValue("username", datum.username)
+      setValue("password", datum.password)
+      setValue("password_confirm", datum.password_confirm)
+      setValue("bank", datum.bank)
+      setValue("acc_name", datum.acc_name)
+      setValue("acc_no", datum.acc_no)
+    }
   },[]);
 
   useEffect(() => {
