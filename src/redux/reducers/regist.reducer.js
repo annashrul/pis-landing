@@ -1,7 +1,7 @@
 import {REGIST} from '../type'
 const initialState = {
     validate: '',
-    step:1,
+    step:0,
     datum:[]
 };
 
