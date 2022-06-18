@@ -28,7 +28,10 @@ const CardImage = tw.img `w-10 h-10 rounded-full`;
 const Item = tw.div `odd:bg-gray-100 flex gap-3 items-center font-semibold text-gray-800 p-3 hover:bg-gray-100 rounded-md hover:cursor-pointer`;
 const DescContainer = tw.div `flex flex-col`;
 
-export default () => {
+export default ({
+  recent=[],
+  top=[]
+}) => {
   const cards = [
     {
       imageSrc:
@@ -39,86 +42,6 @@ export default () => {
       trendingText: "Trending",
       durationText: "7 Days Tour",
       locationText: "Africa"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
-    }, {
-      imageSrc: "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Cruise",
-      pricePerDay: "$169",
-      title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
     }
   ];
   return (
@@ -135,12 +58,12 @@ export default () => {
                 <CardHeadingInfoContainer>
                   <CardHeadingTitle>Member Terbaru</CardHeadingTitle>
                 </CardHeadingInfoContainer>
-                {cards.map((card, index) => (
+                {recent.map((card, index) => (
                   <Item>
-                          <CardImage src="https://randomuser.me/api/portraits/women/24.jpg" alt="Rebecca Burke"/>
+                          <CardImage src={card.foto} alt={card.fullname}/>
                           <DescContainer>
                               <div>
-                                  Rebecca Burke <CardDescSub>Telah bergabung 1 jam yang lalu.</CardDescSub>
+                                  {card.fullname} <CardDescSub>Telah bergabung 1 jam yang lalu.</CardDescSub>
                               </div>
                           </DescContainer>
                   </Item>
@@ -152,15 +75,15 @@ export default () => {
                 <CardHeadingInfoContainer>
                   <CardHeadingTitle>Top Sponsor</CardHeadingTitle>
                 </CardHeadingInfoContainer>
-                {cards.map((card, index) => (
+                {top.map((card, index) => (
                   <Item>
-                          <CardImage src="https://randomuser.me/api/portraits/women/24.jpg" alt="Rebecca Burke"/>
+                          <CardImage src={card.foto} alt={card.fullname}/>
                           <DescContainer>
                               <div>
-                                  Rebecca Burke
+                                  {card.fullname}
                               </div>
                               <CardDescSub2>
-                                  Jumlah sponsor: <b>10 member</b>.
+                                  Jumlah sponsor: <b>{card.jumlah_sponsor} member</b>.
                               </CardDescSub2>
                           </DescContainer>
                   </Item>

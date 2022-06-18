@@ -9,11 +9,11 @@ import {getPaket,getPayment, getAlokasi} from '../../redux/actions/bank.action'
 import {goRegister, setStep} from '../../redux/actions/regist.action'
 import Select from 'react-select';
 import Swal from 'sweetalert2'
+import {toRp} from '../../helpers/genera'
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-10 md:h-auto`;
 const TextColumn = styled(Column)(props => [
   tw`md:w-7/12 mt-16 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
@@ -192,9 +192,9 @@ export default ({referral}) => {
                 />
               <ErrorText>{errors.id_paket===undefined?'':errors.id_paket.message}</ErrorText>
               <br/>
-              <HelpText>Harga Paket: <b>{watch('id_paket')?(watch('id_paket').split("|"))[1]:0}</b></HelpText>
-              <HelpText>Biaya Pendaftaran: <b>{fee_aktivasi}</b></HelpText>
-              <HelpText>Total: <b>{parseInt(watch('id_paket')?(watch('id_paket').split("|"))[1]:"0")+parseInt(fee_aktivasi)}</b></HelpText>
+              <HelpText>Harga Paket: <b>{toRp((watch('id_paket')?(watch('id_paket').split("|"))[1]:0))}</b></HelpText>
+              <HelpText>Biaya Pendaftaran: <b>{toRp(fee_aktivasi)}</b></HelpText>
+              <HelpText>Total: <b>{toRp(parseInt(watch('id_paket')?(watch('id_paket').split("|"))[1]:"0")+parseInt(fee_aktivasi))}</b></HelpText>
 
 
               <BackButton onClick={(e)=>handleClick(e)}>Kembali</BackButton>

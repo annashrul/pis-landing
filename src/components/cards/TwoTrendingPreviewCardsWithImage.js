@@ -38,25 +38,20 @@ const CardTitle = tw.h5`text-xl mt-4 font-bold`;
 
 const CardAction = tw(PrimaryButtonBase)`w-full mt-8`;
 
-export default () => {
-  const cards = [
+export default ({
+  cards = [
     {
       imageSrc:
         "https://images.unsplash.com/photo-1553194587-b010d08c6c56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
       title: "Trip Lombok 3D 2N (+Doorprize) untuk 20 mitra dengan sponsor terbanyak!",
-      trendingText: "Trending",
-      durationText: "7 Days Tour",
-      locationText: "Africa"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
       title: "Cruise to the Mariana Trench and the Phillipines",
-      trendingText: "Trending",
-      durationText: "15 Days Tour",
-      locationText: "Australia"
     }
-  ];
+  ]
+}) => {
   return (
     <Container>
       <Content>

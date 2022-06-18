@@ -8,6 +8,21 @@ export const setBank=(data)=>{
     }
 }
 
+export const setInv = (data) => {
+    return {
+        type: BANK.INV,
+        data
+    }
+}
+
+
+export const setInvNF = (data) => {
+    return {
+        type: BANK.INVNF,
+        data
+    }
+}
+
 export const setPaket = (data) => {
     return {
         type: BANK.PAKET,
@@ -103,5 +118,26 @@ export const getAlokasi = () => {
         .catch(function (error) {
             // handle error
         })
+    }
+}
+
+
+export const getInv = (data) => {
+    return (dispatch) => {
+        const headers = {
+            headers: {
+                'X-Project-ID': AUTH.PID,
+                'X-Requested-From': AUTH.SOURCE,
+            }
+        }
+        axios.get(AUTH.URL + `transaction/deposit/${data}/invoice`, headers)
+            .then(function (response) {
+                const data = response.data
+                dispatch(setInv(data))
+            })
+            .catch(function (error) {
+                // handle error
+                dispatch(setInvNF(error.response.data.meta.code))
+            })
     }
 }
