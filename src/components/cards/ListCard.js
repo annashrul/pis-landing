@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
-
+import moment from "moment";
+import 'moment/locale/id';
+moment.locale('id');
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -63,7 +65,7 @@ export default ({
                           <CardImage src={card.foto} alt={card.fullname}/>
                           <DescContainer>
                               <div>
-                                  {card.fullname} <CardDescSub>Telah bergabung 1 jam yang lalu.</CardDescSub>
+                                  {card.fullname} <CardDescSub>Telah bergabung {moment(card.created_at).fromNow()}.</CardDescSub>
                               </div>
                           </DescContainer>
                   </Item>
