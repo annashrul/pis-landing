@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { withRouter } from "react-router-dom";
 import Hero from "components/hero/BackgroundAsImage.js";
@@ -22,7 +22,7 @@ const Main = (props) => {
     dispatch(getMember());
     // document.title = `Invoice PROWARA`;
   }, []);
-
+  
   return (
     <AnimationRevealPage>
       <Hero
@@ -53,7 +53,7 @@ const Main = (props) => {
                   },
                   {
                     key: "Bonus Ditarik",
-                    value: toRp(datum.total_wd)
+                    value: toRp(datum.total_wd || 0)
                   }
                 ]}
       />
@@ -88,18 +88,12 @@ const Main = (props) => {
           </>
         }
         description="Apa kata member PROWARA selama menggunakan sistem dari kami."
-        testimonials={datum.testi.map(item=>{
-          return {
-            imageSrc: item.photo,
-            profileImageSrc: item.photo,
-            quote: item.caption,
-            customerName: item.title,
-            customerTitle: ""
-          }
-        })}
+        // testimonials={testi}
         textOnLeft={true}
       />
-      <ContactUsForm />
+      <ContactUsForm
+        link={`https://wa.me/+6281919555858`}
+      />
       <Footer />
     </AnimationRevealPage>
   );

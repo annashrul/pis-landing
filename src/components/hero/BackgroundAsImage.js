@@ -47,19 +47,19 @@ const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-
 export default () => {
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#">
+      <NavLink href="#main">
         About
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="#pricing">
         Paket
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="#blog">
         Promo
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="#testi">
         Testimoni
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="#kontak">
         Hubungi Kami!
       </NavLink>
     </NavLinks>,

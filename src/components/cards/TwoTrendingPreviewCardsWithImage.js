@@ -53,7 +53,7 @@ export default ({
   ]
 }) => {
   return (
-    <Container>
+    <Container id="blog">
       <Content>
         <ThreeColumn>
           <HeadingColumn>
@@ -72,7 +72,7 @@ export default ({
                   <CardHeader>
                   </CardHeader>
                   <CardTitle>{card.title}</CardTitle>
-                  <CardAction>Detail</CardAction>
+                  {/* <CardAction>Detail</CardAction> */}
                 </CardText>
               </Card>
             </CardColumn>

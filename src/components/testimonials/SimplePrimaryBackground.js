@@ -8,7 +8,7 @@ import { SectionDescription } from "components/misc/Typography.js";
 import { ReactComponent as QuoteIconBase } from "images/quotes-l.svg"
 import { ReactComponent as ArrowLeftIcon } from "images/arrow-left-3-icon.svg"
 import { ReactComponent as ArrowRightIcon } from "images/arrow-right-3-icon.svg"
-
+import {useSelector} from 'react-redux'
 import "slick-carousel/slick/slick.css";
 
 const PrimaryBackgroundContainer = tw(Container)`-mx-8 px-8 bg-primary text-gray-100`;
@@ -39,7 +39,7 @@ const CustomerImage = tw.img`w-16 h-16 rounded-full`
 const CustomerNameAndProfileContainer = tw.div`mt-4 sm:mt-0 sm:ml-4 flex flex-col`
 const CustomerName = tw.span`text-lg font-semibold`
 const CustomerProfile = tw.span`text-sm font-normal text-gray-700`
-const ControlsContainer = tw.div`sm:ml-auto flex`
+const ControlsContainer = tw.div`sm:ml-auto text-right flex`
 const ControlButton = styled.button`
   ${tw`text-gray-600 hover:text-primary-700 focus:outline-none transition-colors duration-300 ml-4 first:ml-0 sm:first:ml-4 mt-4 sm:mt-0`}
   .icon {
@@ -51,37 +51,14 @@ export default ({
   subheading = "",
   heading = "Testimonials",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  testimonials = [
-    {
-      customerName: "David Hanson",
-      customerProfile: "CEO, Koalify",
-      imageSrc:
-        "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.85&w=256&h=256&q=80",
-      quote:
-        "We have been using servana for about 2 years. And in that time we have had no problem at all. The user interface is really simple to use. Our services scale automatically and we never have to worry about downtimes. is as described."
-    },
-    {
-      customerName: "Serena Davis",
-      customerProfile: "Founder, Travana",
-      imageSrc:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=256&h=256&q=80",
-      quote:
-        "We are delighted with the quality and performance of the servers that servana provides. The uptime is amazing and the internet connection is great for the price we are paying."
-    },
-    {
-      customerName: "Timothy Burr",
-      customerProfile: "CTO, Coronax",
-      imageSrc:
-        "https://images.unsplash.com/photo-1580852300654-03c803a14e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4.25&w=256&h=256&q=80",
-      quote:
-        "It has been 8 months since we have switched to servana and it has nothing but an amazing experience. The cost is affordable, support is great, uptime is as described."
-    }
-  ]
+  testimonials = []
 }) => {
   const [sliderRef, setSliderRef] = useState(null)
+  const datum = useSelector(state => state.landingReducer.testi)
+  console.log('datum', datum);
 
   return (
-    <PrimaryBackgroundContainer>
+    <PrimaryBackgroundContainer id='testi'>
       <ContentWithPaddingXl>
         <HeadingContainer>
           {subheading && <Subheading>{subheading}</Subheading>}
@@ -89,23 +66,20 @@ export default ({
           <Description>{description}</Description>
         </HeadingContainer>
         <TestimonialsSlider arrows={false} ref={setSliderRef}>
-          {testimonials.map((testimonial, index) => (
+          {datum.length===0?'':datum.map((testimonial, index) => (
             <Testimonial key={index}>
               <QuoteContainer>
                 <QuoteIcon />
                 <Quote>
-                  {testimonial.quote}
+                  {testimonial.caption}
                 </Quote>
               </QuoteContainer>
               <CustomerInfoAndControlsContainer>
-                <CustomerImage src={testimonial.imageSrc} />
+                <CustomerImage src={testimonial.photo} />
                 <CustomerNameAndProfileContainer>
                   <CustomerName>
-                    {testimonial.customerName}
+                    {testimonial.title}
                   </CustomerName>
-                  <CustomerProfile>
-                    {testimonial.customerProfile}
-                  </CustomerProfile>
                 </CustomerNameAndProfileContainer>
                 <ControlsContainer>
                   <ControlButton onClick={sliderRef?.slickPrev}>

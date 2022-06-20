@@ -6,7 +6,16 @@ const initialState = {
     count_wd:0,
     total_wd:0,
     promo:[],
-    testi:[],
+    testi:[{
+        caption: "Mantap bonusnya !\nJoooosss Gandoosss",
+        created_at: "2022-06-20T01:54:20.177Z",
+        id: "3281bb3e-1937-424e-90ff-b85967a9d922",
+        photo: "http://ptnetindo.com:6706/images/default.png",
+        rating: 5,
+        records: "3",
+        title: "Agustinus",
+        updated_at: "2022-06-20T01:54:20.177Z"
+    }],
 };
 
 export const landingReducer = (state = initialState, action) => {

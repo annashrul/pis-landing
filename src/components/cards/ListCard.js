@@ -1,7 +1,5 @@
 import React from "react";
 import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 import moment from "moment";
@@ -34,20 +32,8 @@ export default ({
   recent=[],
   top=[]
 }) => {
-  const cards = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1553194587-b010d08c6c56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      type: "Beachfront",
-      pricePerDay: "$99",
-      title: "A Trip to the Bahamas and the Carribean Ocean",
-      trendingText: "Trending",
-      durationText: "7 Days Tour",
-      locationText: "Africa"
-    }
-  ];
   return (
-    <Container>
+    <Container id="top_member">
       <Content>
         <HeaderContainer>
           {/* {subheading && <Subheading>{subheading}</Subheading>} */}

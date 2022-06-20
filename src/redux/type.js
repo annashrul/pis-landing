@@ -1,5 +1,6 @@
 export const AUTH = {
     URL: "https://api.prowara.id/",
+    // URL: "http://localhost:6706/",
     SOURCE: "apps",
     PID: "296cd1b03960e8c8176fe06464c58ab8",
 }
